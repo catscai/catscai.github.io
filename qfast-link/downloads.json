@@ -1,0 +1,52 @@
+{
+  "appName": "QFast Link",
+  "tagline": "Fast, simple connection tools for everyday use.",
+  "latest": {
+    "versionName": "1.2",
+    "versionCode": 3,
+    "updatedAt": "2026-08-16",
+    "minimumAndroidVersion": "Android 8.0+"
+  },
+  "platforms": [
+    {
+      "id": "android",
+      "name": "Android",
+      "description": "Install the APK directly on your Android device.",
+      "links": [
+        {
+          "label": "Latest APK",
+          "url": "https://catscai.github.io/qfast_link.apk",
+          "type": "apk",
+          "primary": true
+        },
+        {
+          "label": "Version 1.1 APK",
+          "url": "https://catscai.github.io/qfast_link_1.1.apk",
+          "type": "apk",
+          "primary": false
+        }
+      ]
+    }
+  ],
+  "changelog": [
+    {
+      "versionName": "1.2",
+      "versionCode": 3,
+      "date": "2026-08-16",
+      "notes": [
+        "Added a public download page for choosing installation links.",
+        "Added structured version metadata for in-app update checks.",
+        "Improved the release information format for future updates."
+      ]
+    },
+    {
+      "versionName": "1.1",
+      "versionCode": 2,
+      "date": "2026-05-29",
+      "notes": [
+        "Published an Android APK release.",
+        "Prepared compatibility improvements for Android devices."
+      ]
+    }
+  ]
+}
