@@ -161,26 +161,26 @@
             white-space: nowrap;
         }
 
-        .platform-list {
+        .source-list {
             display: grid;
             gap: 1rem;
         }
 
-        .platform-card {
+        .source-card {
             border: 1px solid var(--line);
             border-radius: 8px;
             background: var(--panel-strong);
             padding: 1rem;
         }
 
-        .platform-head {
+        .source-head {
             display: flex;
             align-items: center;
             gap: 0.75rem;
             margin-bottom: 0.75rem;
         }
 
-        .platform-mark {
+        .source-mark {
             display: grid;
             place-items: center;
             width: 2.35rem;
@@ -194,12 +194,12 @@
             text-transform: uppercase;
         }
 
-        .platform-name {
+        .source-name {
             font-size: 1rem;
             font-weight: 700;
         }
 
-        .platform-description {
+        .source-description {
             color: var(--muted);
             font-size: 0.92rem;
             margin-top: 0.1rem;
@@ -364,7 +364,7 @@
             <div>
                 <div class="eyebrow">Downloads</div>
                 <h1 id="page-title">QFast Link</h1>
-                <p class="subtitle" id="tagline">Fast, simple connection tools for everyday use.</p>
+                <p class="subtitle" id="tagline">Fast, simple Android app downloads from multiple sources.</p>
                 <div class="meta-row" aria-label="Latest release metadata">
                     <span class="meta-chip" id="latest-version">Version loading</span>
                     <span class="meta-chip" id="latest-date">Updated loading</span>
@@ -375,13 +375,13 @@
             <aside class="download-panel" aria-label="Download links">
                 <div class="panel-top">
                     <div>
-                        <div class="panel-title">Choose a download</div>
-                        <p class="platform-description">Select the package that matches your device.</p>
+                        <div class="panel-title">Choose a source</div>
+                        <p class="source-description">Pick the mirror that is easiest for you to access.</p>
                     </div>
                     <div class="version-badge" id="panel-version">Latest</div>
                 </div>
-                <div class="platform-list" id="platform-list">
-                    <div class="status">Loading download links.</div>
+                <div class="source-list" id="source-list">
+                    <div class="status">Loading download sources.</div>
                 </div>
             </aside>
         </section>
@@ -408,11 +408,11 @@
                 updatedAt: "2026-08-16",
                 minimumAndroidVersion: "Android 8.0+"
             },
-            platforms: [
+            downloadSources: [
                 {
-                    id: "android",
-                    name: "Android",
-                    description: "Install the APK directly on your Android device.",
+                    id: "github",
+                    name: "GitHub",
+                    description: "Direct download hosted on GitHub Pages.",
                     links: [
                         {
                             label: "Latest APK",
@@ -421,6 +421,18 @@
                             primary: true
                         }
                     ]
+                },
+                {
+                    id: "google-drive",
+                    name: "Google Drive",
+                    description: "Backup link for shared access and downloads.",
+                    links: []
+                },
+                {
+                    id: "feishu",
+                    name: "Feishu",
+                    description: "Team sharing link for internal distribution.",
+                    links: []
                 }
             ],
             changelog: []
@@ -447,15 +459,15 @@
             .map((part) => part[0])
             .join("");
 
-        const renderPlatforms = (platforms) => {
-            const target = document.querySelector("#platform-list");
-            if (!Array.isArray(platforms) || platforms.length === 0) {
-                target.innerHTML = '<div class="status">Download links are coming soon.</div>';
+        const renderSources = (sources) => {
+            const target = document.querySelector("#source-list");
+            if (!Array.isArray(sources) || sources.length === 0) {
+                target.innerHTML = '<div class="status">Download sources are coming soon.</div>';
                 return;
             }
 
-            target.innerHTML = platforms.map((platform) => {
-                const links = Array.isArray(platform.links) ? platform.links : [];
+            target.innerHTML = sources.map((source) => {
+                const links = Array.isArray(source.links) ? source.links : [];
                 const linkHtml = links.length
                     ? links.map((link) => `
                         <a class="download-link${link.primary ? " primary" : ""}" href="${html(link.url, "#")}">
@@ -463,15 +475,15 @@
                             <span class="link-type">${html(link.type, "link")}</span>
                         </a>
                     `).join("")
-                    : '<div class="status">No links available for this platform yet.</div>';
+                    : '<div class="status">No links available for this source yet.</div>';
 
                 return `
-                    <article class="platform-card">
-                        <div class="platform-head">
-                            <div class="platform-mark" aria-hidden="true">${html(initials(platform.name))}</div>
+                    <article class="source-card">
+                        <div class="source-head">
+                            <div class="source-mark" aria-hidden="true">${html(initials(source.name))}</div>
                             <div>
-                                <div class="platform-name">${html(platform.name, "Platform")}</div>
-                                <div class="platform-description">${html(platform.description, "Available download links")}</div>
+                                <div class="source-name">${html(source.name, "Source")}</div>
+                                <div class="source-description">${html(source.description, "Available download links")}</div>
                             </div>
                         </div>
                         <div class="link-list">${linkHtml}</div>
@@ -512,7 +524,7 @@
             document.querySelector("#latest-requirement").textContent = text(latest.minimumAndroidVersion, "Requirement pending");
             document.querySelector("#panel-version").textContent = `v${text(latest.versionName)}`;
             document.querySelector("#footer-text").textContent = `${text(data.appName, state.appName)} downloads are provided by CatsCai.`;
-            renderPlatforms(data.platforms);
+            renderSources(data.downloadSources || data.platforms);
             renderChangelog(data.changelog);
         };
 

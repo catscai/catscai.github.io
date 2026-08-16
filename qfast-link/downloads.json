@@ -1,29 +1,49 @@
 {
   "appName": "QFast Link",
-  "tagline": "Fast, simple connection tools for everyday use.",
+  "tagline": "Fast, simple Android app downloads from multiple sources.",
   "latest": {
     "versionName": "1.2",
     "versionCode": 3,
     "updatedAt": "2026-08-16",
     "minimumAndroidVersion": "Android 8.0+"
   },
-  "platforms": [
+  "downloadSources": [
     {
-      "id": "android",
-      "name": "Android",
-      "description": "Install the APK directly on your Android device.",
+      "id": "feishu",
+      "name": "Feishu",
+      "description": "Team sharing link for internal distribution.",
       "links": [
         {
           "label": "Latest APK",
-          "url": "https://catscai.github.io/qfast_link.apk",
+          "url": "https://my.feishu.cn/file/AJx9bFllbosIOcxaUyvcnsmInnc?from=from_copylink",
           "type": "apk",
           "primary": true
-        },
+        }
+      ]
+    },
+    {
+      "id": "github",
+      "name": "GitHub",
+      "description": "Direct download hosted on GitHub Pages.",
+      "links": [
         {
-          "label": "Version 1.1 APK",
-          "url": "https://catscai.github.io/qfast_link_1.1.apk",
+          "label": "Latest APK",
+          "url": "https://github.com/catscai/catscai.github.io/releases/download/v1.2/qfast-link_1.2.apk",
           "type": "apk",
-          "primary": false
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "google-drive",
+      "name": "Google Drive",
+      "description": "Backup link for shared access and downloads.",
+      "links": [
+        {
+          "label": "Latest APK",
+          "url": "https://drive.google.com/file/d/1NxZJ2zyyOHtMBvxDwNv7bdQXRNEfBRKY/view?usp=sharing",
+          "type": "apk",
+          "primary": true
         }
       ]
     }
@@ -34,9 +54,10 @@
       "versionCode": 3,
       "date": "2026-08-16",
       "notes": [
-        "Added a public download page for choosing installation links.",
-        "Added structured version metadata for in-app update checks.",
-        "Improved the release information format for future updates."
+        "1.Added Wi-Fi scanning for quick connection.",
+        "2.Added disk space analysis.",
+        "3.Upgraded the communication protocol with the Mac.",
+        "4.Fixed some bugs."
       ]
     },
     {
@@ -44,8 +65,8 @@
       "versionCode": 2,
       "date": "2026-05-29",
       "notes": [
-        "Published an Android APK release.",
-        "Prepared compatibility improvements for Android devices."
+        "1.Supports resource preview for images, videos, documents, and APK files.",
+        "2.Fixed some bugs."
       ]
     }
   ]
