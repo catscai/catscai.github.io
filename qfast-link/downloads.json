@@ -2,8 +2,8 @@
   "appName": "QFast Link",
   "tagline": "Fast, simple Android app downloads from multiple sources.",
   "latest": {
-    "versionName": "1.2",
-    "versionCode": 3,
+    "versionName": "1.3",
+    "versionCode": 4,
     "updatedAt": "2026-08-16",
     "minimumAndroidVersion": "Android 8.0+"
   },
@@ -15,7 +15,7 @@
       "links": [
         {
           "label": "Latest APK",
-          "url": "https://my.feishu.cn/file/AJx9bFllbosIOcxaUyvcnsmInnc?from=from_copylink",
+          "url": "https://my.feishu.cn/file/UgglbRh1coNcOQx5eQ2cJpmmn5g?from=from_copylink",
           "type": "apk",
           "primary": true
         }
@@ -28,20 +28,7 @@
       "links": [
         {
           "label": "Latest APK",
-          "url": "https://github.com/catscai/catscai.github.io/releases/download/v1.2/qfast-link_1.2.apk",
-          "type": "apk",
-          "primary": true
-        }
-      ]
-    },
-    {
-      "id": "google-drive",
-      "name": "Google Drive",
-      "description": "Backup link for shared access and downloads.",
-      "links": [
-        {
-          "label": "Latest APK",
-          "url": "https://drive.google.com/file/d/1NxZJ2zyyOHtMBvxDwNv7bdQXRNEfBRKY/view?usp=sharing",
+          "url": "https://github.com/catscai/catscai.github.io/releases/download/v1.3/qfast-link_1.3.apk",
           "type": "apk",
           "primary": true
         }
@@ -49,6 +36,15 @@
     }
   ],
   "changelog": [
+    {
+      "versionName": "1.3",
+      "versionCode": 3,
+      "date": "2026-11-07",
+      "notes": [
+        "1. QFast Link now supports sending files directly to Mac.",
+        "2. View transfer history, preview files, and open them."
+      ]
+    },
     {
       "versionName": "1.2",
       "versionCode": 3,
